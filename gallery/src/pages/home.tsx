@@ -1,9 +1,10 @@
-import { useListPaintings } from "@artifacts/api-client-react";
+import { useListPaintings, type Painting } from "@workspace/api-client-react";
 import { Loader2 } from "lucide-react";
 import { useLanguage } from "@/contexts/language";
 
 export default function Home() {
   const { data: paintings, isLoading, error } = useListPaintings();
+  const paintingsList = paintings ?? ([] as Painting[]);
   const { t } = useLanguage();
 
   return (
@@ -37,7 +38,7 @@ export default function Home() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 md:gap-24">
-            {paintings
+            {paintingsList
               .sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0))
               .map((painting, index) => (
                 <div

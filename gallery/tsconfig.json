@@ -2,6 +2,8 @@
   "compilerOptions": {
     "target": "ES2022",
     "useDefineForClassFields": true,
+    "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
     "skipLibCheck": true,
@@ -15,7 +17,6 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
       "@workspace/*": ["src/lib/*"]
